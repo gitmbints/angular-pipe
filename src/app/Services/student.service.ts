@@ -65,4 +65,21 @@ export class StudentService {
 		let student = new Student(id, name, gender, dob, course, marks, fee);
 		this.students.push(student);
 	}
+
+	filterStudentByGender(filterBy: string) {
+		let filteredList: Student[] = [];
+
+		switch (filterBy) {
+			case "Male":
+				filteredList = this.students.filter((item) => item.gender === "Male");
+				break;
+			case "Female":
+				filteredList = this.students.filter((item) => item.gender === "Female");
+				break;
+			default:
+				filteredList = this.students;
+		}
+
+		return filteredList;
+	}
 }
