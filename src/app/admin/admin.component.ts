@@ -24,6 +24,12 @@ export class AdminComponent implements OnInit {
 
 	filterText: string = "All";
 
+	totalStudents: Promise<number> = new Promise((resolve, reject) => {
+		setTimeout(() => {
+			resolve(this.students.length);
+		}, 2000);
+	});
+
 	//PROPERTIES FOR INSERTING
 	@ViewChild("name") Name: ElementRef;
 	@ViewChild("gender") Gender: ElementRef;
